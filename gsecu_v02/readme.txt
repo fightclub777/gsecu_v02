@@ -10,11 +10,14 @@
 3. 주요내용.
 	3.1. 로그인 화면 커스터마이징.
 		1) security-context.xml
-			: <http> 태그 안에 <form-login> 태그를 추가.
+			: 로그인 화면을 커스터마이징하기 위해서는 security-context.xml에 만들어져 있던 
+			<http> 태그 안에 <form-login> 태그를 추가하고 커스터마이징 설정을 해야한다.
+			
 			<form-login 
 			login-page="/login" default-target-url="/home" 
 			username-parameter="userid" password-parameter="userpw" 
 			authentication-failure-url="/login?fail=true"/>
+			
 			<!-- 
 			# form-login 항목.
 				1) always-use-default-target
@@ -77,6 +80,7 @@
 
 		2) 로그인 페이지(login.jsp) 만들기
 			: WEB-INF/views/auth/login.jsp 를 생성.
+			
 			<form name="loginForm" method="POST">
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<table style="margin-left:auto; margin-right:auto;">
